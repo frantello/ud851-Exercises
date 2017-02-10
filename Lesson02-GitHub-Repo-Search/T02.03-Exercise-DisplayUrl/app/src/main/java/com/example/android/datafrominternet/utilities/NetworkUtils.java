@@ -59,6 +59,7 @@ public class NetworkUtils {
         // COMPLETED (1) Fill in this method to build the proper GitHub query URL
         Uri uri =  Uri.parse(GITHUB_BASE_URL).buildUpon()
                 .appendQueryParameter(PARAM_QUERY, gitHubSearchQuery)
+                .appendQueryParameter(PARAM_SORT, sortBy)
                 .build();
 
         URL url = null;
