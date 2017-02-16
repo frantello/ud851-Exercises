@@ -40,7 +40,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     private static final String TAG = GreenAdapter.class.getSimpleName();
 
     // COMPLETED (3) Create a final private ListItemClickListener called mOnClickListener
-    private final ListItemClickListener mOnClickListener;
+    private ListItemClickListener mOnClickListener;
 
     /*
      * The number of ViewHolders that have been created. Typically, you can figure out how many
@@ -89,23 +89,22 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     private int mNumberItems;
 
     // COMPLETED (1) Add an interface called ListItemClickListener
+    // COMPLETED (2) Within that interface, define a void method called onListItemClick that takes an int as a parameter
     public interface ListItemClickListener {
 
-        // COMPLETED (2) Within that interface, define a void method called onListItemClick that takes an int as a parameter
-        void onListItemClick(int number);
+        void onListItemClick(int position);
     }
 
     // COMPLETED (4) Add a ListItemClickListener as a parameter to the constructor and store it in mOnClickListener
-
     /**
      * Constructor for GreenAdapter that accepts a number of items to display and the specification
      * for the ListItemClickListener.
      *
      * @param numberOfItems Number of items to display in list
      */
-    public GreenAdapter(int numberOfItems, ListItemClickListener mOnClickListener) {
+    public GreenAdapter(int numberOfItems, ListItemClickListener listItemClickListener) {
         mNumberItems = numberOfItems;
-        this.mOnClickListener = mOnClickListener;
+        mOnClickListener = listItemClickListener;
         viewHolderCount = 0;
     }
 
@@ -209,8 +208,8 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
         // COMPLETED (6) Override onClick, passing the clicked item's position (getAdapterPosition()) to mOnClickListener via its onListItemClick method
         @Override
         public void onClick(View view) {
-
             mOnClickListener.onListItemClick(getAdapterPosition());
         }
+
     }
 }
