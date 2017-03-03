@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) {
             if (savedInstanceState.containsKey(LIFECYCLE_CALLBACKS_TEXT_KEY)) {
-                mLifecycleDisplay.setText(savedInstanceState.getCharSequence(LIFECYCLE_CALLBACKS_TEXT_KEY));
+                mLifecycleDisplay.setText(savedInstanceState.getString(LIFECYCLE_CALLBACKS_TEXT_KEY));
             }
         }
 
@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
         // COMPLETED (4) Call logAndAppend with the ON_SAVE_INSTANCE_STATE String
         logAndAppend(ON_SAVE_INSTANCE_STATE);
         // COMPLETED (5) Put the text from the TextView in the outState bundle
-        outState.putCharSequence(LIFECYCLE_CALLBACKS_TEXT_KEY, mLifecycleDisplay.getText());
+        outState.putString(LIFECYCLE_CALLBACKS_TEXT_KEY, mLifecycleDisplay.getText().toString());
     }
 
     /**
