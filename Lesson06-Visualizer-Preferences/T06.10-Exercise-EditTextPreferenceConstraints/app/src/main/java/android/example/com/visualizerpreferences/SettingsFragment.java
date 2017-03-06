@@ -50,12 +50,10 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
                 String value = sharedPreferences.getString(p.getKey(), "");
                 setPreferenceSummary(p, value);
             }
-
-            // COMPLETED (3) Add the OnPreferenceChangeListener specifically to the EditTextPreference
-            if (p.getKey().equals(getString(R.string.pref_size_key))) {
-                p.setOnPreferenceChangeListener(this);
-            }
         }
+
+        // COMPLETED (3) Add the OnPreferenceChangeListener specifically to the EditTextPreference
+        findPreference(getString(R.string.pref_size_key)).setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -100,7 +98,8 @@ public class SettingsFragment extends PreferenceFragmentCompat implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 
-        Toast error = Toast.makeText(getContext(), "Bad size", Toast.LENGTH_LONG);
+        Toast error = Toast.makeText(getContext(),
+                "Please select a number between 0.1 and 3", Toast.LENGTH_SHORT);
 
         if (preference.getKey().equals(getString(R.string.pref_size_key))) {
 
