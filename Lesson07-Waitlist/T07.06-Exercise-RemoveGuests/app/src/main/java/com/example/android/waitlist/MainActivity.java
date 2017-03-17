@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
 
                 // COMPLETED (8) Inside, get the viewHolder's itemView's tag and store in a long variable id
-                long id = (Long) viewHolder.itemView.getTag();
+                long id = (long) viewHolder.itemView.getTag();
 
                 // COMPLETED (9) call removeGuest and pass through that id
                 removeGuest(id);
