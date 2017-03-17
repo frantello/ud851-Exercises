@@ -87,8 +87,9 @@ public class MainActivity extends AppCompatActivity {
 
             partySize = Integer.parseInt(mNewGuestNameEditText.getText().toString());
 
-        } catch (NumberFormatException nfException) {
-            // Do nothing.
+        } catch (NumberFormatException ex) {
+
+            Log.e(LOG_TAG, "Failed to parse party size text to number: " + ex.getMessage());
         }
 
 
