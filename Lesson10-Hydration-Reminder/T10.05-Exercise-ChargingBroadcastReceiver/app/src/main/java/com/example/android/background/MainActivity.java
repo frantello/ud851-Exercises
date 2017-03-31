@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.os.BatteryManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -73,6 +74,8 @@ public class MainActivity extends AppCompatActivity implements
         mIntentFilter = new IntentFilter();
         mIntentFilter.addAction(Intent.ACTION_POWER_CONNECTED);
         mIntentFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
+
+        BatteryManager batteryManager = (BatteryManager) getSystemService(BATTERY_SERVICE);
     }
 
     // COMPLETED (7) Override onResume and setup your broadcast receiver. Do this by calling
